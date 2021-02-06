@@ -8,13 +8,20 @@ import distro
 
 
 def main():
+    task = Task.init(project_name="test", task_name="importlib_test2")
+    """
     task = Task.create(
         project_name="test",
         task_name="importlib_test2",
-        task_type="training",
-        docker="ubuntu:16.04",
+        task_type=Task.TaskTypes.training,
+        docker="ubuntu:18.04",
         add_task_init_call=True,
-    )
+        script="./run_task.py",
+        packages=["clearml", "distro"],
+    )    
+    """
+    task.set_base_docker("continuumio/miniconda3:4.9.2")
+    task.execute_remotely()
     printme = importlib.import_module("some_package.file_to_import").printme
     printme()
     print(os.name)  # returns os name in simple form

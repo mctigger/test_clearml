@@ -1,0 +1,12 @@
+cpu_env
+__pycache__
+/models
+/runs
+/cache
+/data
+/logs
+/checkpoints
+.vscode
+.ipynb_checkpoints
+
+MUJOCO_LOG.TXT
